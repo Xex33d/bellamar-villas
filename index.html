@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bellamar Villas · El Nido, Palawan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f2ea;--ink:#1d2a22;--mute:#5d6a60;--green:#1e4238;--gold:#9a7436;--card:#fffdf8;--line:#ddd5c4;--onhero:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a15;--ink:#ece6d8;--mute:#a3ada4;--green:#0f2a22;--gold:#ecc88f;--card:#19231d;--line:#2b3a31}}
+:root[data-theme="dark"]{--bg:#121a15;--ink:#ece6d8;--mute:#a3ada4;--green:#0f2a22;--gold:#ecc88f;--card:#19231d;--line:#2b3a31}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:300 17px/1.7 Jost,system-ui,sans-serif}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;margin:0;line-height:1.1}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+header{position:fixed;top:0;left:0;right:0;z-index:20;padding:calc(18px + env(safe-area-inset-top,0px)) 5vw 18px;display:flex;align-items:center;justify-content:space-between;color:var(--onhero);transition:background .4s}
+header.solid{background:var(--green);backdrop-filter:blur(8px)}
+.logo{display:block;text-decoration:none}.logo img{height:54px;width:auto;display:block}.hlogo{width:clamp(130px,17vw,210px);height:auto;margin:0 auto 22px;display:block}
+nav{display:flex;gap:32px;align-items:center}nav a{text-decoration:none;font-size:15px;letter-spacing:.06em}
+nav a:hover{color:var(--gold)}
+.btn{display:inline-block;border:1px solid currentColor;padding:12px 26px;background:none;color:inherit;font:400 15px Jost,sans-serif;letter-spacing:.08em;cursor:pointer;text-decoration:none;transition:background .25s,color .25s}
+.btn:hover{background:var(--onhero);color:#1d2a22}
+.btn.fill{background:var(--green);color:#fff;border-color:var(--green)}.btn.fill:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.hero{position:relative;height:100vh;height:100svh;min-height:620px;color:var(--onhero);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#1e4238}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.05) 35%,rgba(0,0,0,.6))}
+.hero>*{position:relative;z-index:2}
+.hero-copy{text-align:center;padding:0 5vw;margin-bottom:8vh;animation:rise 1.4s .2s both}
+.hero h1{font-size:clamp(34px,6vw,78px);font-weight:300;letter-spacing:.01em}
+.hero p{margin:14px auto 0;max-width:520px;font-size:18px}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.bar{margin:0 auto 4vh;width:min(1040px,92vw);background:rgba(255,253,248,.96);color:#1d2a22;display:grid;grid-template-columns:1fr 1fr 1fr auto;align-items:stretch;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.bar label{display:flex;flex-direction:column;padding:14px 22px;border-right:1px solid #ddd5c4;font-size:13px;color:#5d6a60}
+.bar input,.bar select{border:0;background:none;font:400 17px Jost,sans-serif;color:#1d2a22;padding:4px 0;outline-offset:4px;width:100%}
+.bar .btn{border:0;padding:0 38px;min-height:64px}
+.sec{padding:clamp(70px,11vw,150px) 5vw}.wrap{max-width:1100px;margin:0 auto}
+.intro{text-align:center}.intro h2{font-size:clamp(34px,5vw,60px);max-width:820px;margin:0 auto 26px}
+.intro p{max-width:640px;margin:0 auto;color:var(--mute)}
+.exp{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.exp div{padding:36px 28px;border-right:1px solid var(--line)}.exp div:last-child{border:0}
+.exp h3{font-size:28px;margin-bottom:10px}.exp p{margin:0;color:var(--mute);font-size:15.5px}
+.gal{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:280px 280px;gap:14px}
+.gal img{width:100%;height:100%;object-fit:cover;display:block}.gal img:first-child{grid-row:span 2}
+.cap{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px;flex-wrap:wrap}.cap h2{font-size:clamp(34px,4.6vw,56px)}.cap p{max-width:380px;color:var(--mute);margin:0}
+.visit{background:var(--green);color:#ece6d8;text-align:center}.visit h2{font-size:clamp(34px,5vw,60px);margin-bottom:18px}.visit p{max-width:560px;margin:0 auto 30px;opacity:.85}
+footer{padding:36px 5vw;text-align:center;font-size:14px;color:var(--mute)}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(10,18,13,.7);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.panel{background:var(--card);color:var(--ink);width:min(560px,100%);padding:38px 34px;max-height:92vh;overflow:auto;animation:rise .45s both}
+.panel h2{font-size:38px;margin-bottom:6px}
+.sum{display:flex;gap:26px;flex-wrap:wrap;padding:16px 0;margin:14px 0 22px;border-block:1px solid var(--line);font-size:15px}
+.sum b{display:block;font-weight:500;font-size:17px}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;border:1px solid var(--line);margin-bottom:12px;text-decoration:none;transition:border-color .2s}
+.opt:hover{border-color:var(--gold)}.opt strong{font:400 26px 'Cormorant Garamond',serif}.opt span{font-size:14px;color:var(--mute);display:block}
+.x{float:right;background:none;border:0;color:var(--ink);font-size:30px;cursor:pointer;line-height:1}
+.err{color:#b3402d;font-size:14px;margin-top:8px;min-height:20px;text-align:center}
+@media(max-width:860px){nav a:not(.btn){display:none}.bar{grid-template-columns:1fr 1fr}.bar label{border-bottom:1px solid #ddd5c4}.bar .btn{grid-column:span 2;min-height:56px}.exp{grid-template-columns:1fr 1fr}.exp div{border-bottom:1px solid var(--line)}.gal{grid-template-columns:1fr;grid-template-rows:none}.gal img{height:240px}.gal img:first-child{grid-row:auto}}
+.bar{position:relative}.bar .fld{display:flex;flex-direction:column;align-items:flex-start;padding:14px 22px;border:0;border-right:1px solid #ddd5c4;background:none;font:400 13px Jost,sans-serif;color:#5d6a60;text-align:left;cursor:pointer;width:100%;min-width:0}
+.bar .fld span{font-size:17px;color:#1d2a22;padding:4px 0}.bar .fld.on{box-shadow:inset 0 -3px 0 #1e4238}
+.cal{position:absolute;left:0;bottom:calc(100% + 10px);background:#fffdf8;color:#1d2a22;padding:22px 24px 14px;box-shadow:0 20px 60px rgba(0,0,0,.4);z-index:40;width:min(700px,100%)}
+.cal[hidden]{display:none}.months{display:flex;gap:36px}.mo{flex:1;min-width:0}
+.mt{text-align:center;font:500 22px/34px 'Cormorant Garamond',serif;margin-bottom:6px}
+.wd,.dg{display:grid;grid-template-columns:repeat(7,1fr)}.wd span{text-align:center;font-size:12px;color:#5d6a60;padding:4px 0}
+.dg button{border:0;background:none;font:400 15px Jost,sans-serif;color:#1d2a22;cursor:pointer;min-height:40px;padding:0}
+.dg button:hover:not(:disabled){background:#efe6d3}.dg button:disabled{color:#c2bcae;cursor:default}
+.dg .rng{background:#e4ece6}.dg .sel{background:#1e4238;color:#fff}
+.cn{position:absolute;top:22px;width:34px;height:34px;border:0;background:none;font-size:26px;line-height:1;cursor:pointer;color:#1d2a22}.cn:disabled{opacity:.25;cursor:default}
+.cft{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid #ddd5c4}
+.cft button{background:none;border:0;font:400 15px Jost,sans-serif;cursor:pointer;color:#1d2a22;padding:8px 4px}.cft #dn{background:#1e4238;color:#fff;padding:10px 26px}
+@media(max-width:860px){header{padding-left:20px;padding-right:20px}.logo img{height:44px}.btn{padding:10px 18px}
+.hero{min-height:560px}.hero-copy{margin-bottom:4vh}.hero p{display:none}.hlogo{width:120px;margin-bottom:14px}
+.bar{width:calc(100% - 28px);margin-bottom:calc(14px + env(safe-area-inset-bottom,0px))}.bar .fld{padding:10px 16px;border-bottom:1px solid #ddd5c4}.bar label{padding:10px 16px}.bar .btn{padding:0}
+.cal{position:fixed;left:0;right:0;bottom:0;width:auto;max-height:88svh;overflow:auto;padding:18px 14px calc(12px + env(safe-area-inset-bottom,0px));animation:rise .3s both}
+.dg button{min-height:46px}.cn{top:18px}.sec{padding-left:22px;padding-right:22px}.exp{grid-template-columns:1fr}.exp div{border-right:0}.panel{padding:28px 22px}.sum{gap:18px}}
+.rate{display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px;border-top:1px solid var(--line)}.rate div{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}.rate b{font:400 28px 'Cormorant Garamond',serif}
+@media(max-width:860px){.rate{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<header id="hd"><a class="logo" href="#top" aria-label="Bellamar Villas home"><img src="assets/file1.png" alt="Bellamar Villas"></a><nav><a href="#about">About</a><a href="#stay">Experiences</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a class="btn" href="#book">Book now</a></nav></header>
+
+<section class="hero" id="top">
+<video autoplay muted loop playsinline disablepictureinpicture preload="auto" poster="assets/file2.jpg"><source src="assets/file3.mp4" type="video/mp4"></video>
+<div class="hero-copy"><img class="hlogo" src="assets/file4.png" alt="Bellamar Villas"><h1>Slow days in El Nido</h1><p>A new, quiet retreat in El Nido, Palawan: four villas with ensuite bathrooms, a garden pool and an open-air restaurant.</p></div>
+<form class="bar" id="book" novalidate>
+<button type="button" class="fld" id="fci"><small>Check-in</small><span id="vci">Add date</span></button>
+<button type="button" class="fld" id="fco"><small>Check-out</small><span id="vco">Add date</span></button>
+<label>Guests<select id="gu"></select></label>
+<button class="btn fill" type="submit">Check availability</button>
+<div class="cal" id="cal" hidden></div>
+</form>
+</section>
+
+<section class="sec intro" id="about"><h2>Where the garden meets the sea air</h2>
+<p>Bellamar Villas opened in December 2025 in Villa Libertad, El Nido. With just four villas, it stays calm: swim in the pool, eat at the restaurant, have a drink at the bar, and let the day go as slowly as you like. Each villa has its own ensuite bathroom and a comfortable bed.</p></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap"><div class="cap"><h2>Guests rate us 9.4 out of 10</h2><p>Scores from guests who stayed and reviewed us on Booking.com.</p></div><div class="rate"><div><span>Staff</span><b>10.0</b></div><div><span>Comfort</span><b>9.5</b></div><div><span>Cleanliness</span><b>9.4</b></div><div><span>Facilities</span><b>9.4</b></div><div><span>Value for money</span><b>8.7</b></div><div><span>Location</span><b>8.1</b></div></div></div></section>
+<section class="sec" id="stay" style="padding-top:0"><div class="wrap">
+<div class="cap"><h2>What you'll find here</h2><p>A small, new property that is kept quiet and well looked after.</p></div>
+<div class="exp">
+<div><h3>Pool and garden</h3><p>A swimming pool set among tropical planting, with quiet corners to rest.</p></div>
+<div><h3>Restaurant and bar</h3><p>Eat and unwind at our open-air restaurant and bar next to the pool.</p></div>
+<div><h3>Island days</h3><p>El Nido's lagoons, beaches and island-hopping routes are nearby. Ask us to help plan your days.</p></div>
+<div><h3>Warm welcome</h3><p>Guests rate our staff 10 out of 10. Parking is available on site.</p></div>
+</div></div></section>
+
+<section class="sec" id="gallery" style="padding-top:0"><div class="wrap">
+<div class="cap"><h2>A look around</h2></div>
+<div class="gal"><img src="assets/file5.jpg" alt="Garden terrace at Bellamar Villas" loading="lazy"><img src="assets/file6.jpg" alt="Palms and lounge area" loading="lazy"><img src="assets/file7.jpg" alt="Sunlit walkway" loading="lazy"></div>
+</div></section>
+
+<section class="sec" id="location" style="padding-top:0"><div class="wrap"><div class="cap"><h2>Find us in El Nido</h2><p>Church Road, Proper 2, Villa Libertad, El Nido, Palawan 5313, Philippines. Guests describe it as quiet and about 16 minutes from El Nido town.</p></div><a class="btn fill" href="https://www.google.com/maps/search/?api=1&query=Bellamar+Villas+Villa+Libertad+El+Nido+Palawan" target="_blank" rel="noopener">Open in Google Maps</a></div></section>
+<section class="sec visit" id="visit"><h2>Plan your visit</h2>
+<p>Choose your dates above and we will take you to our booking partners with your dates and guests ready. For questions, message us on Facebook.</p>
+<a class="btn" href="https://www.facebook.com/profile.php?id=61582021350912" target="_blank" rel="noopener">Message us on Facebook</a></section>
+<footer>© 2026 Bellamar Villas · Church Road, Proper 2, Villa Libertad, El Nido, Palawan 5313, Philippines</footer>
+
+<div class="modal" id="md" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="panel">
+<button class="x" id="cl" aria-label="Close">×</button>
+<h2 id="mt">Choose where to book</h2>
+<div class="sum"><div>Check-in<b id="s1"></b></div><div>Check-out<b id="s2"></b></div><div>Stay<b id="s3"></b></div><div>Guests<b id="s4"></b></div></div>
+<a class="opt" id="bk" target="_blank" rel="noopener"><div><strong>Booking.com</strong><span>See rooms and rates for your dates</span></div><span>Open</span></a>
+<a class="opt" id="ag" target="_blank" rel="noopener"><div><strong>Agoda</strong><span>See rooms and rates for your dates</span></div><span>Open</span></a>
+</div></div>
+
+<script>
+var $=function(i){return document.getElementById(i)},gu=$('gu'),hd=$('hd'),cal=$('cal'),fci=$('fci'),fco=$('fco');
+for(var i=1;i<=10;i++){var o=document.createElement('option');o.value=i;o.textContent=i+(i>1?' guests':' guest');if(i==2)o.selected=true;gu.appendChild(o)}
+function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function P(s){return new Date(s+'T00:00')}
+function fmt(s){return P(s).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}
+var T=new Date(),today=iso(T),S=null,E=null,vy=T.getFullYear(),vm=T.getMonth(),pick='in';
+function nm(){return matchMedia('(min-width:861px)').matches?2:1}
+function render(){
+ var h='',k,n=nm(),canPrev=(vy>T.getFullYear()||vm>T.getMonth());
+ h+='<button type="button" class="cn" data-m="-1" style="left:14px" aria-label="Previous month"'+(canPrev?'':' disabled')+'>‹</button><button type="button" class="cn" data-m="1" style="right:14px" aria-label="Next month">›</button><div class="months">';
+ for(k=0;k<n;k++){var f=new Date(vy,vm+k,1),dim=new Date(f.getFullYear(),f.getMonth()+1,0).getDate();
+  h+='<div class="mo"><div class="mt">'+f.toLocaleDateString('en-GB',{month:'long',year:'numeric'})+'</div><div class="wd"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div><div class="dg">';
+  for(var b=0;b<f.getDay();b++)h+='<span></span>';
+  for(var d=1;d<=dim;d++){var s=iso(new Date(f.getFullYear(),f.getMonth(),d)),c=(s===S||s===E)?'sel':(S&&E&&s>S&&s<E?'rng':'');
+   h+='<button type="button" data-d="'+s+'" class="'+c+'"'+(s<today?' disabled':'')+'>'+d+'</button>'}
+  h+='</div></div>'}
+ h+='</div><div class="cft"><button type="button" id="clr">Clear dates</button><button type="button" id="dn">Done</button></div>';
+ cal.innerHTML=h}
+function show(p){pick=p;if(S){var d=P(S);vy=d.getFullYear();vm=d.getMonth()}render();cal.hidden=false;mark()}
+function hide(){cal.hidden=true;mark()}
+function mark(){fci.classList.toggle('on',!cal.hidden&&pick==='in');fco.classList.toggle('on',!cal.hidden&&pick==='out')}
+function sync(){$('vci').textContent=S?fmt(S):'Add date';$('vco').textContent=E?fmt(E):'Add date'}
+fci.onclick=function(){show('in')};fco.onclick=function(){show(S?'out':'in')};
+cal.onclick=function(e){var t=e.target.closest('button');if(!t)return;
+ if(t.dataset.m){vm+=+t.dataset.m;if(vm>11){vm=0;vy++}if(vm<0){vm=11;vy--}render();return}
+ if(t.id==='clr'){S=E=null;pick='in';sync();render();mark();return}
+ if(t.id==='dn'){hide();return}
+ if(t.dataset.d){var s=t.dataset.d;
+  if(pick==='in'||!S||s<=S){S=s;E=null;pick='out';sync();render();mark()}
+  else{E=s;sync();hide();pick='in'}}};
+document.addEventListener('click',function(e){if(!cal.hidden&&!cal.contains(e.target)&&!e.target.closest('.fld'))hide()});
+onscroll=function(){hd.classList.toggle('solid',scrollY>60)};
+$('book').onsubmit=function(e){e.preventDefault();
+ if(!S){show('in');return}if(!E){show('out');return}
+ var g=gu.value,nights=Math.round((P(E)-P(S))/864e5);
+ $('s1').textContent=fmt(S);$('s2').textContent=fmt(E);$('s3').textContent=nights+(nights>1?' nights':' night');$('s4').textContent=g+(g>1?' guests':' guest');
+ $('bk').href='https://www.booking.com/hotel/ph/bellamar-villas.html?checkin='+S+'&checkout='+E+'&group_adults='+g+'&group_children=0&no_rooms=1';
+ $('ag').href='https://www.agoda.com/en-in/bellamar-villas/hotel/palawan-ph.html?checkIn='+S+'&los='+nights+'&adults='+g+'&children=0&rooms=1';
+ $('md').classList.add('open');$('cl').focus()};
+function close(){$('md').classList.remove('open')}
+$('cl').onclick=close;$('md').onclick=function(e){if(e.target===this)close()};
+onkeydown=function(e){if(e.key==='Escape'){close();hide()}};
+</script></body></html>
