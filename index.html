@@ -75,6 +75,17 @@ footer{padding:36px 5vw;text-align:center;font-size:14px;color:var(--mute)}
 .dg button{min-height:46px}.cn{top:18px}.sec{padding-left:22px;padding-right:22px}.exp{grid-template-columns:1fr}.exp div{border-right:0}.panel{padding:28px 22px}.sum{gap:18px}}
 .rate{display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px;border-top:1px solid var(--line)}.rate div{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}.rate b{font:400 28px 'Cormorant Garamond',serif}
 @media(max-width:860px){.rate{grid-template-columns:1fr}}
+.res{position:fixed;inset:0;z-index:60;background:var(--bg);color:var(--ink);overflow:auto;animation:rise .4s both}.res[hidden]{display:none}
+.rhd{display:flex;align-items:center;justify-content:space-between;background:var(--green);color:#fff;padding:calc(12px + env(safe-area-inset-top,0px)) 5vw 12px;position:sticky;top:0;z-index:2}
+.rhd img{height:44px}.back{background:none;border:0;color:#ecc88f;font:400 16px Jost,sans-serif;cursor:pointer;padding:8px 0;width:110px;text-align:left}.sp{width:110px}
+.rbody{max-width:1000px;margin:0 auto;padding:clamp(36px,6vw,80px) 5vw 80px}.rbody h2{font-size:clamp(34px,5vw,58px);margin-bottom:10px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.pc{background:var(--card);border:1px solid var(--line);padding:32px 28px;display:flex;flex-direction:column;gap:4px;position:relative}.pc.best{border:2px solid #b08a4e}
+.tag{position:absolute;top:-14px;left:24px;background:#ecc88f;color:#1d2a22;font-size:13px;font-weight:500;padding:3px 14px}
+.pc h3{font-size:34px}.pc .tot{font:400 46px/1.1 'Cormorant Garamond',serif;margin-top:10px}.pc small{color:var(--mute);font-size:14px}.pc .btn{margin-top:22px;text-align:center}
+.note{color:var(--mute);font-size:14px;margin-top:26px;max-width:640px}
+@media(max-width:860px){.cards{grid-template-columns:1fr}.back,.sp{width:auto}.sp{display:none}}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.fill{background:#ecc88f;color:#1d2a22;border-color:#ecc88f}:root:not([data-theme="light"]) .btn.fill:hover{background:#fff}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
 </style></head><body>
 <header id="hd"><a class="logo" href="#top" aria-label="Bellamar Villas home"><img src="assets/file1.png" alt="Bellamar Villas"></a><nav><a href="#about">About</a><a href="#stay">Experiences</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a class="btn" href="#book">Book now</a></nav></header>
@@ -115,15 +126,14 @@ footer{padding:36px 5vw;text-align:center;font-size:14px;color:var(--mute)}
 <a class="btn" href="https://www.facebook.com/profile.php?id=61582021350912" target="_blank" rel="noopener">Message us on Facebook</a></section>
 <footer>© 2026 Bellamar Villas · Church Road, Proper 2, Villa Libertad, El Nido, Palawan 5313, Philippines</footer>
 
-<div class="modal" id="md" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="panel">
-<button class="x" id="cl" aria-label="Close">×</button>
-<h2 id="mt">Choose where to book</h2>
+<div class="res" id="md" role="dialog" aria-modal="true" aria-labelledby="mt" hidden>
+<div class="rhd"><button type="button" class="back" id="cl">‹ Change dates</button><img src="assets/file1.png" alt="Bellamar Villas"><span class="sp"></span></div>
+<div class="rbody"><h2 id="mt">Compare prices and book</h2>
 <div class="sum"><div>Check-in<b id="s1"></b></div><div>Check-out<b id="s2"></b></div><div>Stay<b id="s3"></b></div><div>Guests<b id="s4"></b></div></div>
-<a class="opt" id="bk" target="_blank" rel="noopener"><div><strong>Booking.com</strong><span>See rooms and rates for your dates</span></div><span>Open</span></a>
-<a class="opt" id="ag" target="_blank" rel="noopener"><div><strong>Agoda</strong><span>See rooms and rates for your dates</span></div><span>Open</span></a>
-</div></div>
-
+<div class="cards" id="cards"></div><p class="note" id="note"></p></div></div>
 <script>
+/* Owner: enter each platform's nightly rate in PHP (a number). Leave null to show "Live price". */
+var RATES={booking:null,agoda:null};
 var $=function(i){return document.getElementById(i)},gu=$('gu'),hd=$('hd'),cal=$('cal'),fci=$('fci'),fco=$('fco');
 for(var i=1;i<=10;i++){var o=document.createElement('option');o.value=i;o.textContent=i+(i>1?' guests':' guest');if(i==2)o.selected=true;gu.appendChild(o)}
 function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
@@ -156,14 +166,26 @@ cal.onclick=function(e){var t=e.target.closest('button');if(!t)return;
   else{E=s;sync();hide();pick='in'}}};
 document.addEventListener('click',function(e){if(!cal.hidden&&!cal.contains(e.target)&&!e.target.closest('.fld'))hide()});
 onscroll=function(){hd.classList.toggle('solid',scrollY>60)};
+var PL=[{k:'booking',n:'Booking.com',u:function(S,E,g){return 'https://www.booking.com/hotel/ph/bellamar-villas.html?checkin='+S+'&checkout='+E+'&group_adults='+g+'&group_children=0&no_rooms=1'}},
+{k:'agoda',n:'Agoda',u:function(S,E,g,n){return 'https://www.agoda.com/en-in/bellamar-villas/hotel/palawan-ph.html?checkIn='+S+'&los='+n+'&adults='+g+'&children=0&rooms=1'}}];
+function php(x){return '\u20b1'+Math.round(x).toLocaleString('en-PH')}
 $('book').onsubmit=function(e){e.preventDefault();
  if(!S){show('in');return}if(!E){show('out');return}
- var g=gu.value,nights=Math.round((P(E)-P(S))/864e5);
+ var g=+gu.value,nights=Math.round((P(E)-P(S))/864e5),i,any=false;
  $('s1').textContent=fmt(S);$('s2').textContent=fmt(E);$('s3').textContent=nights+(nights>1?' nights':' night');$('s4').textContent=g+(g>1?' guests':' guest');
- $('bk').href='https://www.booking.com/hotel/ph/bellamar-villas.html?checkin='+S+'&checkout='+E+'&group_adults='+g+'&group_children=0&no_rooms=1';
- $('ag').href='https://www.agoda.com/en-in/bellamar-villas/hotel/palawan-ph.html?checkIn='+S+'&los='+nights+'&adults='+g+'&children=0&rooms=1';
- $('md').classList.add('open');$('cl').focus()};
-function close(){$('md').classList.remove('open')}
-$('cl').onclick=close;$('md').onclick=function(e){if(e.target===this)close()};
-onkeydown=function(e){if(e.key==='Escape'){close();hide()}};
+ var a=RATES.booking>0,b=RATES.agoda>0,best=null;
+ if(a&&b&&RATES.booking!==RATES.agoda)best=RATES.booking<RATES.agoda?'booking':'agoda';
+ var h='';
+ for(i=0;i<PL.length;i++){var p=PL[i],r=RATES[p.k],has=r>0;if(has)any=true;
+  h+='<div class="pc'+(best===p.k?' best':'')+'">'+(best===p.k?'<span class="tag">Lower price</span>':'')+'<h3>'+p.n+'</h3>';
+  if(has){h+='<div class="tot">'+php(r*nights)+'</div><small>Total for '+nights+(nights>1?' nights':' night')+' \u00b7 '+php(r)+' per night</small>';
+   if(best&&best!==p.k)h+='<small>'+php(Math.abs(RATES.booking-RATES.agoda)*nights)+' more than the other platform</small>'}
+  else h+='<div class="tot" style="font-size:32px">Live price</div><small>Open to see today\u2019s rate for your dates</small>';
+  h+='<a class="btn fill" target="_blank" rel="noopener" href="'+p.u(S,E,g,nights)+'">Book on '+p.n+'</a></div>'}
+ $('cards').innerHTML=h;
+ $('note').textContent=any?'Prices are estimates for your dates. Final price, taxes, fees and room availability are confirmed on each platform.':'Each platform sets its own price, which can change daily. Open both to see the live rate for your dates and compare.';
+ $('md').hidden=false;$('md').scrollTop=0;document.body.style.overflow='hidden';$('cl').focus()};
+function closeRes(){$('md').hidden=true;document.body.style.overflow=''}
+$('cl').onclick=closeRes;
+onkeydown=function(e){if(e.key==='Escape'){closeRes();hide()}};
 </script></body></html>
