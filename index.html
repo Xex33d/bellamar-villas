@@ -86,6 +86,19 @@ footer{padding:36px 5vw;text-align:center;font-size:14px;color:var(--mute)}
 .note{color:var(--mute);font-size:14px;margin-top:26px;max-width:640px}
 @media(max-width:860px){.cards{grid-template-columns:1fr}.back,.sp{width:auto}.sp{display:none}}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.fill{background:#ecc88f;color:#1d2a22;border-color:#ecc88f}:root:not([data-theme="light"]) .btn.fill:hover{background:#fff}}
+.bar{background:none;box-shadow:none;color:#fff;width:min(1280px,calc(100% - 10vw));margin:0 auto 5vh;gap:16px;align-items:end}
+.bar .grp{display:flex;flex-direction:column;gap:8px;min-width:0}
+.bar .grp .lb{display:block;padding:0;border:0;font:500 12px Jost,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.bar .grp .fld,.bar .grp select{height:52px;width:100%;border:1px solid rgba(255,255,255,.9);border-radius:0;background-color:rgba(10,18,14,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;padding:0 16px;font:400 16px Jost,sans-serif;text-align:left;cursor:pointer;box-shadow:none}
+.bar .grp .fld{display:flex;flex-direction:row;align-items:center;justify-content:space-between}
+.bar .grp .fld::after{content:"\25BE";opacity:.85;font-size:14px}
+.bar .grp .fld span{font-size:16px;color:#fff;padding:0}.bar .grp .fld.on{border-color:#ecc88f;box-shadow:none}
+.bar .grp select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+.bar .grp select option{color:#1d2a22;background:#fff}
+.bar>.btn.fill{height:52px;min-height:0;padding:0 38px;border:0;background:#ecc88f;color:#1d2a22;text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:500}
+.bar>.btn.fill:hover{background:#fff;color:#1d2a22}
+@media(max-width:860px){.bar{width:calc(100% - 44px);gap:14px 12px;margin-bottom:calc(18px + env(safe-area-inset-bottom,0px))}.bar .grp:nth-child(3),.bar>.btn.fill{grid-column:span 2}}
+.hero>video{z-index:0}.hero::after{z-index:1}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
 </style></head><body>
 <header id="hd"><a class="logo" href="#top" aria-label="Bellamar Villas home"><img src="assets/file1.png" alt="Bellamar Villas"></a><nav><a href="#about">About</a><a href="#stay">Experiences</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a class="btn" href="#book">Book now</a></nav></header>
@@ -94,9 +107,9 @@ footer{padding:36px 5vw;text-align:center;font-size:14px;color:var(--mute)}
 <video autoplay muted loop playsinline disablepictureinpicture preload="auto" poster="assets/file2.jpg"><source src="assets/file3.mp4" type="video/mp4"></video>
 <div class="hero-copy"><img class="hlogo" src="assets/file4.png" alt="Bellamar Villas"><h1>Slow days in El Nido</h1><p>A new, quiet retreat in El Nido, Palawan: four villas with ensuite bathrooms, a garden pool and an open-air restaurant.</p></div>
 <form class="bar" id="book" novalidate>
-<button type="button" class="fld" id="fci"><small>Check-in</small><span id="vci">Add date</span></button>
-<button type="button" class="fld" id="fco"><small>Check-out</small><span id="vco">Add date</span></button>
-<label>Guests<select id="gu"></select></label>
+<div class="grp"><span class="lb">Check-in</span><button type="button" class="fld" id="fci"><span id="vci">Add date</span></button></div>
+<div class="grp"><span class="lb">Check-out</span><button type="button" class="fld" id="fco"><span id="vco">Add date</span></button></div>
+<div class="grp"><label class="lb" for="gu">Guests</label><select id="gu"></select></div>
 <button class="btn fill" type="submit">Check availability</button>
 <div class="cal" id="cal" hidden></div>
 </form>
